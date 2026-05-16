@@ -5,17 +5,15 @@ abstract class Platform {
 }
 
 abstract class Notification {
-  private platform: Platform;
-
-  constructor(platform: Platform) {
-    this.platform = platform;
-  }
-
+  constructor(protected platform: Platform) {}
   abstract styling(): string;
 
   send(message: string) {
-    if (this.platform === null) return;
     this.platform.logicToSendNotification(this.styling() + message);
+  }
+
+  setPlatform(platform: Platform) {
+    this.platform = platform;
   }
 }
 
@@ -51,7 +49,7 @@ class AndroidPlatform extends Platform {
 
 class WebPlatform extends Platform {
   logicToSendNotification(message: string): void {
-    androidNotifiable(`[WEB]-${message}`);
+    webNotifiable(`[WEB]-${message}`);
   }
 }
 
@@ -70,4 +68,7 @@ export function exampleOne() {
   alert.send("Hey you heart rate is getting low, are you ok?");
   webConfirmation.send("Are you sure you want to eat all the food?");
   webMessage.send("Hello!! How are you?");
+
+  warning.setPlatform(web);
+  warning.send("Sent to web!");
 }
