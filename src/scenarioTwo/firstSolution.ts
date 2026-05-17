@@ -1,59 +1,15 @@
-import { androidNotifiable, webNotifiable } from "./mockFramework.js";
+import { Alert } from "./notifications/alter.notification.js";
+import { Confirmation } from "./notifications/confirmation.notification.js";
+import { Message } from "./notifications/message.notification.js";
+import { Warning } from "./notifications/warning.notification.js";
+import { AndroidPlatform } from "./platforms/android.platform.js";
+import { WebPlatform } from "./platforms/web.platform.js";
 
-abstract class Platform {
-  abstract logicToSendNotification(message: string): void;
-}
+/**
+ * Patron de diseño usado: BRIDGE and COMPOSITION
+ */
 
-abstract class Notification {
-  constructor(protected platform: Platform) {}
-  abstract styling(): string;
-
-  send(message: string) {
-    this.platform.logicToSendNotification(this.styling() + message);
-  }
-
-  setPlatform(platform: Platform) {
-    this.platform = platform;
-  }
-}
-
-class Warning extends Notification {
-  styling(): string {
-    return "[WARNING] - ";
-  }
-}
-
-class Alert extends Notification {
-  styling(): string {
-    return "[ALERT] - ";
-  }
-}
-
-class Message extends Notification {
-  styling(): string {
-    return "[MESSAGE] - ";
-  }
-}
-
-class Confirmation extends Notification {
-  styling(): string {
-    return "[CONFIRMATION] - ";
-  }
-}
-
-class AndroidPlatform extends Platform {
-  logicToSendNotification(message: string): void {
-    androidNotifiable(`[ANDROID]-${message}`);
-  }
-}
-
-class WebPlatform extends Platform {
-  logicToSendNotification(message: string): void {
-    webNotifiable(`[WEB]-${message}`);
-  }
-}
-
-export function exampleOne() {
+export function scenarioTwo() {
   // Platform
   var android = new AndroidPlatform();
   var web = new WebPlatform();

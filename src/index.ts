@@ -3,7 +3,7 @@
 import { CarBuilder } from "./scenarioOne/carBuilder.js";
 import CarBuilderTwo from "./scenarioOne/carBuilderTwo.js";
 import { scenarioThree } from "./scenarioThree/index.js";
-import { exampleOne } from "./scenarioTwo/firstSolution.js";
+import { scenarioTwo } from "./scenarioTwo/firstSolution.js";
 
 const cardBuilderTwo = () => {
   var car = new CarBuilderTwo();
@@ -19,5 +19,5 @@ const cardBuilder = () => {
 };
 cardBuilderTwo();
 cardBuilder();
-exampleOne()
+scenarioTwo()
 scenarioThree()
