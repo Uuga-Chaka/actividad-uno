@@ -5,7 +5,10 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "scenarioTwo": "npx ts-node src/scenarioTwo/index.ts"
+    "dev": "ts-node src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
