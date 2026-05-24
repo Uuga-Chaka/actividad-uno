@@ -1,12 +1,23 @@
 {
   "name": "automovil-builder",
   "version": "1.0.0",
+  "description": "Patrón Builder para personalización de automóviles en TypeScript",
+  "main": "index.ts",
   "scripts": {
-    "start": "npx ts-node index.ts"
+    "start": "ts-node index.ts",
+    "build": "tsc",
+    "dev": "ts-node index.ts"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
     "ts-node": "^10.9.2",
     "@types/node": "^20.0.0"
-  }
+  },
+  "keywords": [
+    "typescript",
+    "design-patterns",
+    "builder"
+  ],
+  "author": "",
+  "license": "MIT"
 }
