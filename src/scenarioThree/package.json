@@ -1,12 +1,14 @@
 {
-  "name": "scenario-two",
+  "name": "scenario-three",
   "type": "commonjs",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "scenarioThree": "npx ts-node src/scenarioThree/index.ts",
-    "scenarioTwo": "npx ts-node src/scenarioTwo/index.ts"
+    "dev": "ts-node src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",

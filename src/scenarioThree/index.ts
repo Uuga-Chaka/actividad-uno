@@ -1,59 +1,26 @@
-interface IConversation {
-  message: string;
-  timeStamp: Date;
-}
+import { ChatRoom } from "./src/mediator/ChatRoom";
+import { RegularUser } from "./src/user/RegularUser";
+import { AdminUser } from "./src/user/AdminUser";
 
-class ChatRoom {
-  persons: Person[] = [];
+const chatRoom = new ChatRoom();
 
-  sendMessage(sender: Person, message: string) {
-    for (const person of this.persons) {
-      if (person !== sender) {
-        person.receive({ message, timeStamp: new Date() });
-      }
-    }
-  }
-}
+const luis = new RegularUser("Luis", chatRoom);
+const maria = new RegularUser("Maria", chatRoom);
+const sebastian = new AdminUser("Sebastian", chatRoom);
 
-class Person {
-  chatRoom: ChatRoom | null = null;
-  name: string;
+console.log("--------- Uniendo al chat --------");
+chatRoom.addUser(luis);
+chatRoom.addUser(maria);
+chatRoom.addUser(sebastian);
 
-  constructor(name: string) {
-    this.name = name;
-  }
+console.log("--------- Luis envia un mensaje --------");
+luis.send("Hola a todos!");
 
-  joinChat(chatRoom: ChatRoom) {
-    if (chatRoom !== null) {
-      console.log("Already joined a chat");
-    }
-    this.chatRoom = chatRoom;
-    this.chatRoom.persons.push(this);
-    console.log(`${this.name} Joined the chat`);
-  }
+console.log("--------- Maria envia un mensaje --------");
+maria.send("Hey que tal!");
 
-  notify(message: string) {
-    if (this.chatRoom) {
-      this.chatRoom.sendMessage(this, message);
-    }
-    console.log(`${this.name} has not joined to any chat`);
-  }
+console.log("--------- Admin Sebastian envia un mensaje --------");
+sebastian.send("Bienvenidos al grupo");
 
-  receive(message: IConversation) {
-    console.log(`${this.name} recivio: `, message);
-  }
-}
-
-export function scenarioThree() {
-  const chatRoom = new ChatRoom();
-  const pedrito = new Person("Pedrito");
-  const maria = new Person("Maria");
-  const alvaro = new Person("Alvaro");
-
-  pedrito.joinChat(chatRoom);
-  maria.joinChat(chatRoom);
-  alvaro.joinChat(chatRoom);
-
-  pedrito.notify("hola");
-  maria.notify("Puta madre");
-}
+console.log("--------- Admin expulsa un usuario --------");
+sebastian.kickUser(luis);
