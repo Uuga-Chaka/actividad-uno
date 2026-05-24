@@ -5,10 +5,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
-    "clean": "rm -rf dist"
+    "start": "npx ts-node index.ts"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",

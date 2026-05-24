@@ -5,6 +5,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
+    "scenarioOne": "npx ts-node src/scenarioOne/index.ts",
     "scenarioTwo": "npx ts-node src/scenarioTwo/index.ts"
   },
   "devDependencies": {
