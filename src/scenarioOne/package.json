@@ -1,0 +1,14 @@
+{
+  "name": "scenario-one",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx ts-node index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.0.0"
+  }
+}

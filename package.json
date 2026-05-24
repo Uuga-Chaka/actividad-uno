@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "scenarioThree": "npx ts-node src/scenarioThree/index.ts",
+    "scenarioOne": "npx ts-node src/scenarioOne/index.ts",
     "scenarioTwo": "npx ts-node src/scenarioTwo/index.ts"
   },
   "devDependencies": {
