@@ -1,14 +1,16 @@
 import type { NotificationRenderer } from "./NotificationRenderer.ts";
 
 export class MobileRenderer implements NotificationRenderer {
-  platform: string = 'mobile';
+  platform: string = "MOBILE";
   renderTitle(title: string): void {
-    console.log(`<Text>${title}</Text>`);
+    console.log(`[${this.platform}] ${title}`);
   }
   renderMessage(message: string): void {
-    console.log(`<Text>${message}</Text>`);
+    console.log(`[${this.platform}] ${message}`);
   }
   applyStyle(style: string): void {
-    console.log(`creating styles: ${style}.title and ${style}.message`);
+    console.log(
+      `[${this.platform}] creating styles: ${style}.title and ${style}.message`,
+    );
   }
 }
