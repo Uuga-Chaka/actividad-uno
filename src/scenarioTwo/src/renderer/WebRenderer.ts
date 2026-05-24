@@ -1,14 +1,14 @@
 import type { NotificationRenderer } from "./NotificationRenderer.ts";
 
 export class WebRenderer implements NotificationRenderer {
-  platform: string = 'web';
+  platform: string = 'WEB';
   renderTitle(title: string): void {
-    console.log(`<h1>${title}</h1>`);
+    console.log(`[${this.platform}] ${title}`);
   }
   renderMessage(message: string): void {
-    console.log(`<p>${message}</p>`);
+    console.log(`[${this.platform}] ${message}`);
   }
   applyStyle(style: string): void {
-    console.log(`creating styles: --notification-${style}`);
+    console.log(`[${this.platform}] creating styles: --notification-${style}`);
   }
 }
