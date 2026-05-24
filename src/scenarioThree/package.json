@@ -1,6 +1,6 @@
 {
   "name": "scenario-three",
-  "type": "module",
+  "type": "commonjs",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
