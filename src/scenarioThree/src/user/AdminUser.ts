@@ -1,4 +1,3 @@
-import type { ChatRoom } from "../mediator/ChatRoom";
 import { User } from "./User";
 
 export class AdminUser extends User {
@@ -11,7 +10,7 @@ export class AdminUser extends User {
     console.log(`[ADMIN] ${this.name} recibio de ${sender}: ${message}`);
   }
 
-  kickUser(user: User, chatRoom: ChatRoom) {
-    console.log(`[ADMIN] ${this.name} ha expulsado a ${user.name} del chat`);
+  kickUser(user: User) {
+    this.mediator.kickUser(this, user);
   }
 }
