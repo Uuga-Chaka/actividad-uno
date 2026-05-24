@@ -10,4 +10,4 @@
 Para solucionar el problema que nos plantea este escenario hemos decidido usar un patron estructural: [Bridge](https://refactoring.guru/design-patterns/bridge). Esto con el fin de que en un futuro, si necesitamos agregar nuevas plataformas o tipos de notificacion el numero de cambios se reduce, ademas al no usar la herencia clasica logramos reducir el numero de clases apoyandonos de la composicion.
 
 ## Diagrama de Clases
-![uml](./assets/diagramaClases.svg)
+![uml](./assets/uml-scenario-two.svg)
